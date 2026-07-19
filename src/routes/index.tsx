@@ -450,7 +450,7 @@ function Services() {
 /* ---------------- Gallery ---------------- */
 function Gallery() {
   const items = [
-    { src: buildingExterior, w: 1400, h: 1000, title: "Guji Highland Building", sub: "Our office location at CMC Michael" },
+    { src: buildingExterior, w: 886, h: 1920, title: "Guji Highland Building", sub: "Our office location at CMC Michael" },
     { src: teamLead, w: 1200, h: 1504, title: "Misganaw Tefera Mulat", sub: "Lead Accountant at work" },
     { src: teamLead2, w: 1200, h: 1504, title: "In the Office", sub: "Delivering precision, every day" },
   ];
