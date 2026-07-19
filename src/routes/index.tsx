@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import heroTower from "@/assets/hero-skyscraper.jpg";
 import teamLead from "@/assets/team-lead.jpg";
+import teamLead2 from "@/assets/team-lead-2.jpg";
 import officeInterior from "@/assets/office-interior.jpg";
 import buildingExterior from "@/assets/building-exterior.jpg";
 
@@ -451,7 +452,7 @@ function Gallery() {
   const items = [
     { src: buildingExterior, w: 1400, h: 1000, title: "Guji Highland Building", sub: "Our office location at CMC Michael" },
     { src: teamLead, w: 1200, h: 1504, title: "Misganaw Tefera Mulat", sub: "Lead Accountant at work" },
-    { src: officeInterior, w: 1400, h: 1000, title: "Boardroom", sub: "Where strategy meets clarity" },
+    { src: teamLead2, w: 1200, h: 1504, title: "In the Office", sub: "Delivering precision, every day" },
   ];
   return (
     <section id="gallery" className="relative py-24 sm:py-32">
