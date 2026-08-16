@@ -154,7 +154,7 @@ function Nav({
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-8">
+      <div className="mx-auto max-w-7xl grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-8 lg:px-10">
         <a href="#top" className="flex min-w-0 items-center gap-3">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-lg text-primary">
             M
@@ -191,8 +191,8 @@ function Nav({
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
-          <div className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-1">
+        <div className="lg:hidden max-h-[calc(100svh-4.5rem)] overflow-y-auto overscroll-contain border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-1 sm:px-8">
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -226,12 +226,14 @@ function Hero() {
         alt="Modern skyscraper at dusk representing our office tower in Addis Ababa"
         width={1600}
         height={1920}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 sm:pt-40">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-24">
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-primary backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -240,7 +242,7 @@ function Hero() {
           <p className="mb-4 text-xs sm:text-sm uppercase tracking-[0.3em] text-muted-foreground">
             Guji Highland Building · CMC Michael · Addis Ababa
           </p>
-          <h1 className="font-display text-5xl leading-[1.02] sm:text-7xl md:text-8xl">
+          <h1 className="font-display text-[clamp(2.75rem,9vw,7rem)] leading-[1.02]">
             Accounting built on a
             <br />
             <span className="text-gradient-gold italic">foundation of trust.</span>
@@ -250,16 +252,16 @@ function Hero() {
             Ethiopia — transforming financial complexity into strategic clarity.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-gold transition hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-gold transition hover:opacity-90"
             >
               Book a Consultation <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#services"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background/40 px-7 py-3.5 text-sm text-foreground backdrop-blur-md transition hover:bg-secondary"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background/40 px-7 py-3.5 text-sm text-foreground backdrop-blur-md transition hover:bg-secondary"
             >
               Explore Services
             </a>
@@ -275,7 +277,7 @@ function Hero() {
           </a>
         </div>
 
-        <div className="mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+        <div className="mt-10 hidden items-center gap-3 text-xs uppercase tracking-[0.3em] text-muted-foreground sm:mt-14 sm:flex">
           <ChevronDown className="h-4 w-4 animate-bounce text-primary" />
           Scroll
         </div>
@@ -467,7 +469,7 @@ function Gallery() {
           your financial success.
         </p>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3 sm:mt-14">
           {items.map((it, i) => (
             <figure
               key={it.title}
@@ -788,8 +790,9 @@ function Footer() {
   return (
     <footer className="relative border-t border-border bg-ink py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
+            <div className="sm:col-span-2 md:col-span-1" />
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-lg text-primary">
                 M
