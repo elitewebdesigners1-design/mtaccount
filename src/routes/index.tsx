@@ -411,11 +411,11 @@ function Services() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <div
               key={s.title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:border-primary/50 hover:-translate-y-1 hover:shadow-gold"
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:border-primary/50 hover:-translate-y-1 hover:shadow-gold sm:p-7"
             >
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
               <div className="relative">
@@ -690,14 +690,15 @@ function Contact() {
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <label className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    <label htmlFor="notes" className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                       Additional Notes
                     </label>
                     <textarea
+                      id="notes"
                       name="notes"
                       rows={4}
                       placeholder="Tell us about your business needs…"
-                      className="w-full rounded-xl border border-input bg-background/50 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-primary/60"
+                      className="w-full min-w-0 rounded-xl border border-input bg-background/50 px-4 py-3 text-base outline-none placeholder:text-muted-foreground/60 focus:border-primary/60 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -738,15 +739,16 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+      <label htmlFor={name} className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
         {label}
       </label>
       <input
+        id={name}
         name={name}
         type={type}
         placeholder={placeholder}
         required
-        className="w-full rounded-xl border border-input bg-background/50 px-4 py-3 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-primary/60"
+        className="w-full min-w-0 rounded-xl border border-input bg-background/50 px-4 py-3.5 text-base outline-none placeholder:text-muted-foreground/60 focus:border-primary/60 sm:py-3 sm:text-sm"
       />
     </div>
   );
@@ -763,14 +765,15 @@ function SelectField({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+      <label htmlFor={name} className="mb-2 block text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
         {label}
       </label>
       <select
+        id={name}
         name={name}
         required
         defaultValue=""
-        className="w-full appearance-none rounded-xl border border-input bg-background/50 px-4 py-3 text-sm outline-none focus:border-primary/60"
+        className="w-full min-w-0 appearance-none rounded-xl border border-input bg-background/50 px-4 py-3.5 text-base outline-none focus:border-primary/60 sm:py-3 sm:text-sm"
       >
         <option value="" disabled>
           Select…
