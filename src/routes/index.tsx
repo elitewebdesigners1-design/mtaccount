@@ -599,9 +599,9 @@ function Contact() {
           Book a free initial consultation. Let's discuss how we can help your business grow.
         </p>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+        <div className="mt-12 grid gap-8 sm:mt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
           {/* Info */}
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-6">
             <div className="overflow-hidden rounded-2xl border border-border">
               <img
                 src={officeInterior}
@@ -644,7 +644,7 @@ function Contact() {
           {/* Form */}
           <form
             onSubmit={onSubmit}
-            className="rounded-3xl border border-border bg-card p-6 sm:p-10 shadow-elegant"
+            className="min-w-0 rounded-3xl border border-border bg-card p-6 sm:p-10 shadow-elegant"
           >
             {sent ? (
               <div className="flex flex-col items-center gap-4 py-16 text-center">
