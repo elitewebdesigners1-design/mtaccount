@@ -287,9 +287,9 @@ function Hero() {
 /* ---------------- About ---------------- */
 function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-32">
+    <section id="about" className="relative py-20 sm:py-28 lg:py-32">
       <SectionEyebrow>About Us</SectionEyebrow>
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <h2 className="max-w-3xl text-4xl leading-[1.1] sm:text-6xl">
           A legacy of <span className="text-gradient-gold italic">financial excellence.</span>
         </h2>
@@ -307,6 +307,7 @@ function About() {
                 width={1200}
                 height={1504}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-6">
@@ -393,9 +394,9 @@ function About() {
 /* ---------------- Services ---------------- */
 function Services() {
   return (
-    <section id="services" className="relative py-24 sm:py-32 bg-gradient-noir">
+    <section id="services" className="relative py-20 sm:py-28 lg:py-32 bg-gradient-noir">
       <SectionEyebrow>What We Do</SectionEyebrow>
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <h2 className="text-4xl leading-[1.1] sm:text-6xl">
             Comprehensive accounting
@@ -455,9 +456,9 @@ function Gallery() {
     { src: teamLead2, w: 1200, h: 1504, title: "In the Office", sub: "Delivering precision, every day" },
   ];
   return (
-    <section id="gallery" className="relative py-24 sm:py-32">
+    <section id="gallery" className="relative py-20 sm:py-28 lg:py-32">
       <SectionEyebrow>Gallery</SectionEyebrow>
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <h2 className="max-w-3xl text-4xl leading-[1.1] sm:text-6xl">
           Our office & <span className="text-gradient-gold italic">team.</span>
         </h2>
@@ -480,6 +481,7 @@ function Gallery() {
                 width={it.w}
                 height={it.h}
                 loading="lazy"
+                decoding="async"
                 className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
                   i === 1 ? "h-full min-h-[400px] md:min-h-[560px]" : "aspect-[4/3]"
                 }`}
@@ -502,9 +504,9 @@ function Gallery() {
 /* ---------------- Tracker ---------------- */
 function Tracker() {
   return (
-    <section id="tracker" className="relative py-24 sm:py-32 bg-gradient-noir">
+    <section id="tracker" className="relative py-20 sm:py-28 lg:py-32 bg-gradient-noir">
       <SectionEyebrow>Work Tracker</SectionEyebrow>
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
         <h2 className="text-4xl leading-[1.1] sm:text-6xl">
           Track your work
           <br />
@@ -585,9 +587,9 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative py-20 sm:py-28 lg:py-32">
       <SectionEyebrow>Book a Meeting</SectionEyebrow>
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <h2 className="max-w-3xl text-4xl leading-[1.1] sm:text-6xl">
           Schedule your <span className="text-gradient-gold italic">consultation.</span>
         </h2>
@@ -605,6 +607,7 @@ function Contact() {
                 width={1400}
                 height={1000}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[4/3] w-full object-cover"
               />
             </div>
@@ -784,7 +787,7 @@ function SelectField({
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-ink py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
@@ -834,7 +837,7 @@ function Footer() {
 /* ---------------- Shared ---------------- */
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto mb-10 max-w-7xl px-5 sm:px-8">
+    <div className="mx-auto mb-10 max-w-7xl px-5 sm:px-8 lg:px-10">
       <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-primary">
         <span className="h-px w-10 bg-primary/50" />
         {children}
