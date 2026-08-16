@@ -791,8 +791,7 @@ function Footer() {
     <footer className="relative border-t border-border bg-ink py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
-            <div className="sm:col-span-2 md:col-span-1" />
+          <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-lg text-primary">
                 M
