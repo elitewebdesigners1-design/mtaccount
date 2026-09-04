@@ -22,6 +22,9 @@ import {
   Circle,
   Loader2,
   ChevronDown,
+  Scale,
+  TrendingUp,
+  Gavel,
 } from "lucide-react";
 import heroTower from "@/assets/hero-skyscraper.jpg";
 import teamLead from "@/assets/team-lead.jpg";
@@ -77,6 +80,70 @@ const SERVICES = [
     title: "Payroll & HR",
     body: "Complete payroll processing, pension contribution, employee tax withholding, and HR compliance to keep operations seamless.",
     tags: ["Payroll", "Pension", "Compliance"],
+  },
+  {
+    icon: Scale,
+    title: "Asset Valuations",
+    body: "Independent valuation of property, plant, equipment, investments, and business interests for financial reporting, tax, investment, insurance, and legal purposes.",
+    tags: ["Financial Reporting", "Taxation", "Investment", "Insurance", "Legal"],
+  },
+];
+
+const ASSET_VALUATION_ACTIVITIES = [
+  {
+    icon: FileText,
+    title: "Financial Reporting Valuation",
+    purpose: "Accurate financial statement presentation",
+    items: [
+      "Fair value measurement under IFRS/IFRS for SMEs",
+      "Revaluation of PPE (Property, Plant & Equipment)",
+      "Investment property valuation",
+      "Impairment testing (recoverable amount)",
+      "Business combinations (purchase price allocation)",
+    ],
+  },
+  {
+    icon: Calculator,
+    title: "Taxation Valuation",
+    purpose: "Determine taxable value",
+    items: [
+      "Capital gains tax valuation",
+      "Transfer pricing valuation",
+      "Asset revaluation for tax base adjustment",
+      "Customs valuation (imported assets)",
+    ],
+  },
+  {
+    icon: TrendingUp,
+    title: "Investment Valuation",
+    purpose: "Investment decision-making",
+    items: [
+      "Project appraisal valuation",
+      "Net present value (NPV) based asset valuation",
+      "Business valuation for acquisition/sale",
+      "Equity valuation",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Insurance Valuation",
+    purpose: "Insurance coverage determination",
+    items: [
+      "Replacement cost valuation",
+      "Insurable value estimation",
+      "Reinstatement cost analysis",
+    ],
+  },
+  {
+    icon: Gavel,
+    title: "Legal / Litigation Valuation",
+    purpose: "Legal settlement support",
+    items: [
+      "Divorce asset division valuation",
+      "Expropriation compensation valuation",
+      "Bankruptcy/liquidation valuation",
+      "Court dispute valuation",
+    ],
   },
 ];
 
