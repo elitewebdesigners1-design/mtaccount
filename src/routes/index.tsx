@@ -919,7 +919,7 @@ function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-primary">Services</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {SERVICES.slice(0, 5).map((s) => (
+              {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.title}>
                   <a href="#services" className="hover:text-primary transition">
                     {s.title}
