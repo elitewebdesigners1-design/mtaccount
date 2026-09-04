@@ -22,6 +22,9 @@ import {
   Circle,
   Loader2,
   ChevronDown,
+  Scale,
+  TrendingUp,
+  Gavel,
 } from "lucide-react";
 import heroTower from "@/assets/hero-skyscraper.jpg";
 import teamLead from "@/assets/team-lead.jpg";
@@ -77,6 +80,70 @@ const SERVICES = [
     title: "Payroll & HR",
     body: "Complete payroll processing, pension contribution, employee tax withholding, and HR compliance to keep operations seamless.",
     tags: ["Payroll", "Pension", "Compliance"],
+  },
+  {
+    icon: Scale,
+    title: "Asset Valuations",
+    body: "Independent valuation of property, plant, equipment, investments, and business interests for financial reporting, tax, investment, insurance, and legal purposes.",
+    tags: ["Financial Reporting", "Taxation", "Investment", "Insurance", "Legal"],
+  },
+];
+
+const ASSET_VALUATION_ACTIVITIES = [
+  {
+    icon: FileText,
+    title: "Financial Reporting Valuation",
+    purpose: "Accurate financial statement presentation",
+    items: [
+      "Fair value measurement under IFRS/IFRS for SMEs",
+      "Revaluation of PPE (Property, Plant & Equipment)",
+      "Investment property valuation",
+      "Impairment testing (recoverable amount)",
+      "Business combinations (purchase price allocation)",
+    ],
+  },
+  {
+    icon: Calculator,
+    title: "Taxation Valuation",
+    purpose: "Determine taxable value",
+    items: [
+      "Capital gains tax valuation",
+      "Transfer pricing valuation",
+      "Asset revaluation for tax base adjustment",
+      "Customs valuation (imported assets)",
+    ],
+  },
+  {
+    icon: TrendingUp,
+    title: "Investment Valuation",
+    purpose: "Investment decision-making",
+    items: [
+      "Project appraisal valuation",
+      "Net present value (NPV) based asset valuation",
+      "Business valuation for acquisition/sale",
+      "Equity valuation",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Insurance Valuation",
+    purpose: "Insurance coverage determination",
+    items: [
+      "Replacement cost valuation",
+      "Insurable value estimation",
+      "Reinstatement cost analysis",
+    ],
+  },
+  {
+    icon: Gavel,
+    title: "Legal / Litigation Valuation",
+    purpose: "Legal settlement support",
+    items: [
+      "Divorce asset division valuation",
+      "Expropriation compensation valuation",
+      "Bankruptcy/liquidation valuation",
+      "Court dispute valuation",
+    ],
   },
 ];
 
@@ -445,6 +512,48 @@ function Services() {
             </div>
           ))}
         </div>
+
+        <div className="mt-16 sm:mt-20">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.25em] text-primary">Asset Valuation Activities</p>
+              <h3 className="mt-3 font-display text-3xl leading-[1.1] sm:text-4xl">
+                Detailed valuation <span className="text-gradient-gold italic">expertise.</span>
+              </h3>
+            </div>
+            <p className="text-muted-foreground">
+              Tailored valuation services for financial reporting, tax compliance, investment decisions, insurance coverage, and legal settlements.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {ASSET_VALUATION_ACTIVITIES.map((a) => (
+              <div
+                key={a.title}
+                className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition hover:border-primary/50 sm:p-7"
+              >
+                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl border border-primary/40 bg-primary/10 text-primary">
+                  <a.icon className="h-6 w-6" />
+                </div>
+                <h4 className="font-display text-xl">{a.title}</h4>
+                <ul className="mt-4 space-y-2">
+                  {a.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-5">
+                  <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs text-primary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    Purpose: {a.purpose}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -810,7 +919,7 @@ function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-primary">Services</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {SERVICES.slice(0, 5).map((s) => (
+              {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.title}>
                   <a href="#services" className="hover:text-primary transition">
                     {s.title}
