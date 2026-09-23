@@ -189,6 +189,24 @@ function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Jump to the hashed section (e.g. /#services) after the page loads
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    let tries = 0;
+    const jump = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "auto", block: "start" });
+      } else if (tries++ < 20) {
+        setTimeout(jump, 50);
+      }
+    };
+    const raf = requestAnimationFrame(jump);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <Nav open={navOpen} setOpen={setNavOpen} scrolled={scrolled} />
