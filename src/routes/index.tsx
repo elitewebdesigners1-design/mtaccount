@@ -189,22 +189,44 @@ function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Jump to the hashed section (e.g. /#services) after the page loads
+  // Jump to the hashed section (e.g. /#services) on load and on hash change
   useEffect(() => {
-    const id = window.location.hash.slice(1);
-    if (!id) return;
-    let tries = 0;
-    const jump = () => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "auto", block: "start" });
-      } else if (tries++ < 20) {
-        setTimeout(jump, 50);
-      }
+    const HEADER_OFFSET = 88;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
+    const scrollToHash = (smooth: boolean) => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      let tries = 0;
+      const attempt = () => {
+        const el = document.getElementById(id);
+        if (!el) {
+          if (tries++ < 40) timers.push(setTimeout(attempt, 50));
+          return;
+        }
+        const go = () => {
+          const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+          window.scrollTo({ top: top < 0 ? 0 : top, behavior: smooth ? "smooth" : "auto" });
+        };
+        go();
+        // re-settle after fonts/images change the layout
+        [150, 400, 900, 1600].forEach((d) => timers.push(setTimeout(go, d)));
+      };
+      attempt();
     };
-    const raf = requestAnimationFrame(jump);
-    return () => cancelAnimationFrame(raf);
+
+    scrollToHash(false);
+    const onLoad = () => scrollToHash(false);
+    const onHashChange = () => scrollToHash(true);
+    window.addEventListener("load", onLoad);
+    window.addEventListener("hashchange", onHashChange);
+    return () => {
+      timers.forEach(clearTimeout);
+      window.removeEventListener("load", onLoad);
+      window.removeEventListener("hashchange", onHashChange);
+    };
   }, []);
+
 
 
   return (
