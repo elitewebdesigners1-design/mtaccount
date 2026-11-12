@@ -8,6 +8,13 @@
       "when": 1794333623269,
       "tag": "0000_private_booking_requests",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794509049396,
+      "tag": "0001_booking_submit_function",
+      "breakpoints": true
     }
   ]
 }

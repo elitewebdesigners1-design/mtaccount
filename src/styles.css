@@ -127,3 +127,86 @@
 @utility hairline {
   border-top: 1px solid oklch(0.82 0.14 82 / 0.3);
 }
+/* ---------- Editorial depth ---------- */
+:root {
+  --shadow-depth:
+    0 1px 0 0 oklch(0.82 0.14 82 / 0.12) inset,
+    0 2px 4px -2px oklch(0 0 0 / 0.5),
+    0 18px 40px -18px oklch(0 0 0 / 0.75),
+    0 40px 80px -40px oklch(0 0 0 / 0.6);
+  --shadow-depth-hover:
+    0 1px 0 0 oklch(0.82 0.14 82 / 0.28) inset,
+    0 4px 8px -4px oklch(0 0 0 / 0.5),
+    0 28px 60px -24px oklch(0 0 0 / 0.8),
+    0 30px 70px -40px oklch(0.8 0.13 82 / 0.22);
+  --surface-raised: linear-gradient(165deg, oklch(0.215 0.012 62) 0%, oklch(0.17 0.009 60) 100%);
+}
+
+@utility card-3d {
+  position: relative;
+  background-image: var(--surface-raised);
+  box-shadow: var(--shadow-depth);
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
+  &:hover {
+    box-shadow: var(--shadow-depth-hover);
+  }
+}
+
+@utility gold-edge {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(140deg, oklch(0.85 0.12 85 / 0.55), transparent 35%, transparent 70%, oklch(0.75 0.13 75 / 0.3));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@utility tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+@utility frame-offset {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    border: 1px solid oklch(0.82 0.14 82 / 0.35);
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@utility rise-in {
+  animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
